@@ -16,7 +16,11 @@ public class SetClient{
 				}
 			}
 		}
-	
+		//TODO
+		//get all of the cards put into the set, maybe do some shuffling around would be nice
+		//then bucket them until there are no more sets left
+		//then prints out all of hte sets in the game
+		//
 	}
 	//end of main
 	

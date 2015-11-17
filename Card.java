@@ -1,4 +1,5 @@
-//
+//@author Evan Frawley
+//Avve Card to be used in the Set Game
 
 public class Card {
 

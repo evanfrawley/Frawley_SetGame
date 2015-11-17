@@ -1,3 +1,5 @@
+//
+
 public class Card {
 
 	public int[] data;
@@ -38,21 +40,21 @@ public class Card {
 		}
 		if(data[1] == 0){
 			shape = "diamond";
-		} else if (data[0] == 1){
+		} else if (data[1] == 1){
 			shape = "squiggle";
 		} else {
 			shape = "oval";
 		}
 		if(data[2] == 0){
 			shading = "solid";
-		} else if (data[0] == 1){
+		} else if (data[2] == 1){
 			shading = "empty";
 		} else {
 			shading = "striped";
 		}
 		if(data[3] == 0){
 			number = "one";
-		} else if (data[0] == 1){
+		} else if (data[3] == 1){
 			number = "two";
 			plural = "s";
 		} else {

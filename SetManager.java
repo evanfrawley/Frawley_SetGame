@@ -1,3 +1,5 @@
+//
+
 import java.util.*;
 
 public class SetManager {
@@ -8,36 +10,46 @@ public class SetManager {
       completeSets = new LinkedList<Set<Card>>();
    }
 
-   public boolean checkBoard(ArrayList<Card> list){
+   public ArrayList checkBoard(ArrayList<Card> list){
       Set<Card> temp = new HashSet<Card>();
       boolean isSet = false;
-      for(int i = 0; i < list.size() - 2; i++){
-         Card c1 = list.get(i);
-         for(int j = i; j < list.size() - 1; j++){
-            Card c2 = list.get(j);
-            for(int k = j; k < list.size(); k++){
-               Card c3 = list.get(k);
+      Card c1;
+      Card c2;
+      Card c3;
+      for(int i = 0; i <= list.size() - 3; i++){
+         c1 = list.get(i);
+         for(int j = i + 1; j <= list.size() - 2; j++){
+            c2 = list.get(j);
+            for(int k = j + 1; k <= list.size() - 1; k++){
+               c3 = list.get(k);
                if(checkThree(c1, c2, c3)){
                   temp.add(c1);
                   temp.add(c2);
                   temp.add(c3);
-                  list.removeAll(temp);
                   completeSets.add(temp);
-                  return true;
+                  list.removeAll(temp);
+                  return list;
                }
             }
          }
       }
-      return false;
+      return list;
    }
 
    public boolean checkThree(Card c1, Card c2, Card c3){
       int size = c1.data.length;
       for(int i = 0; i < size; i++){
-         if(c1.data[i] == c2.data[i] && c1.data[i] == c3.data[i]){
+         if(c1.data[i] == c2.data[i] && c1.data[i] == c3.data[i] && c2.data[i] == c3.data[i]){
             return true;
          }
       }
       return false;
+   }
+
+   public void gameover(){
+      for(Set<Card> set : completeSets){
+         System.out.println(set.toString());
+      }
+      System.out.println(completeSets.size());
    }
 }

@@ -3,12 +3,11 @@ import java.io.*;
 
 public class SetGameManager {
 
-	//public Map<Integer, Set<Card>> cardMap;
 	public List<Set<Card>> completeSets;
 	public ArrayList<Set<Card>> array;
+
 	public SetGameManager() {
 
-		//cardMap = new TreeMap<Integer, Set<Card>>();
 		array = new ArrayList<Set<Card>>();
 		completeSets = new LinkedList<Set<Card>>();
 		//12 items, ID's 0-11
@@ -16,8 +15,6 @@ public class SetGameManager {
 			array.add(new HashSet<Card>());
 		}
 	}
-
-	//checkboard
 
 	public void addToBoard(Card card) {
 		for(int i = 0; i < card.data.length; i++){
@@ -32,7 +29,6 @@ public class SetGameManager {
 				Set<Card> temp = new HashSet<Card>();
 				for(Card c : array.get(i)){
 					if(tracker < 3){
-						//cardMap.get(key).remove(c);
 						removeFromOtherSets(c, i);
 						tracker++;
 						temp.add(c);
@@ -41,9 +37,7 @@ public class SetGameManager {
 				completeSets.add(temp);
 				array.get(i).removeAll(temp);
 				return true;
-
 			}
-
 		}
 		return false;
 	}
@@ -52,8 +46,6 @@ public class SetGameManager {
 		for(int j = 0; j < array.size(); j++){
 			if(j != i && array.get(j).contains(c)){
 				array.get(j).remove(c);
-				//System.out.println("removed " + c);
-				System.out.println(array.get(j));
 			}
 		}
 	}

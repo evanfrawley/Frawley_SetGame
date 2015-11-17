@@ -1,14 +1,9 @@
-import java.io.*;
 import java.util.*;
 
 public class SetClient{
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
 
-
-		//simple really inefficient brute force way of making all 81 card values
-		//File f = new File("set.txt");
-		//PrintStream ps = new PrintStream(f);
-		ArrayList<Card> cards = new ArrayList<Card>();
+		List<Card> cards = new ArrayList<Card>();
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
 				for(int k = 0; k < 3; k++){
@@ -19,11 +14,19 @@ public class SetClient{
 			}
 		}
 		SetGameManager sgm = new SetGameManager();
-		Collections.shuffle(cards);
-		for(Card card : cards){
-			sgm.bucketer(card);
+
+		//Random r = new Random();
+		int listTracker = 0;
+		for(int i = listTracker; i < 12; i++){
+			sgm.addToBoard(cards.get(i));
+			listTracker++;
 		}
-		System.out.println(sgm.cardMap);
+		boolean tracker = true;
+		while(tracker){
+			tracker = sgm.hasSet();
+		}
+		System.out.println(sgm.completeSets);
+		System.out.println(sgm.completeSets.size());
 		//TODO
 		//get all of the cards put into the set, maybe do some shuffling around would be nice
 		//then bucket them until there are no more sets left

@@ -21,6 +21,8 @@ public class Card {
 		data[3] = number;
 	}
 
+	//return the String representation of the card object
+	//if I had more time I would figure out a way to optimize this
 	public String toString(){
 		String color = "";
 		String shape = "";
@@ -57,9 +59,7 @@ public class Card {
 			number = "three";
 			plural = "s";
 		}
-
 		return number + " " + color + " " + shading + " " + shape + plural;
-
 	}
 
 }

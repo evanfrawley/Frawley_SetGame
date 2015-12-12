@@ -1,0 +1,33 @@
+CI:
+
+   compareTo
+      some sort of f(x) that allows examination of cards
+   properties
+      color
+      suit / symbol
+      text / toString / return value
+   faceup / facedown
+
+
+BI:
+
+   collection of cards
+      list / set ?
+      toString / return value
+   faceup / facedown
+
+
+DI:
+
+   shuffle
+   draw
+      top / bottom / Random
+   facedown
+   reset?
+
+PI:
+
+   had a board / hand (collection of cards)
+   hitMe - draws one
+   faceup / facedown
+   action (can be defined)

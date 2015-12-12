@@ -56,12 +56,14 @@ public class SetManager {
    //different variables that the set could be
    public boolean checkThree(Card c1, Card c2, Card c3){
       int size = c1.data.length;
+      boolean bool = true;
       for(int i = 0; i < size; i++){
-         if(c1.data[i] == c2.data[i] && c1.data[i] == c3.data[i]){
-            return true;
+         int total = c1.data[i] + c2.data[i] + c3.data[i];
+         if(total % 3 != 0){
+            bool = false;
          }
       }
-      return false;
+      return bool;
    }
 
    //prints out all of the sets that were removed from a boardstate
@@ -106,7 +108,7 @@ public class SetManager {
 
 	//plays an entire game of Set, adding 3 if the boardState doesn't have a set, and removing
    //sets from the board state until there are no sets left and no cards in the deck left
-   //prints all of the found sets at the end. 
+   //prints all of the found sets at the end.
 	public void playGame(){
 		System.out.println("");
 		initBoard();

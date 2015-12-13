@@ -12,4 +12,6 @@ public interface CardInterface<E> {
    //
    public String toString();
 
+   //
+   public void turnOver();
 }

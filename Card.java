@@ -1,68 +1,53 @@
 //@author Evan Frawley
 //Avve Card to be used in the Set Game
 
-public class Card {
+import java.util.Collection;
+import java.lang.IllegalArgumentException;
+import java.util.ArrayList;
+import java.util.List;
 
-	public int[] data;
+public class Card implements CardInterface<String>{
 
-	//				Table of Values
-	//	   		0			1			2
-	//Color		red		green		purple
-	//Shape		diamond	squiggle	oval
-	//Shading	solid 	empty 	striped
-	//Number		1			2			3
-	//how it works: since i knwo that i am putting these values in a certain order
-	//i can put the card objec tinto its respective set by knowing that the exact
-	//indices that i add the object is (3 * i) + the value of the array at i, this maxes out
-	//at 11, which is the last indices of the Manager's array field
+	public final Collection<String> properties;
+	// i.e. - the properties can't be changed after being made
+	private boolean faceUp;
 
-	public Card(int color, int shape, int shading, int number){
-		data = new int[4];
-		data[0] = color;
-		data[1] = shape;
-		data[2] = shading;
-		data[3] = number;
+
+	//creates a new instance of card
+	public Card(Collection<String> prop){
+		//iterate through prop, and add into the properties
+		if(prop == null || prop.isEmpty()){
+			throw new IllegalArgumentException();
+		}
+		this.properties = new ArrayList<String>(prop);
+		this.faceUp = false; //initialized to facedown, boardstate manipulation can change
+		//if faceup or fd
+
 	}
 
-	//return the String representation of the card object
-	//if I had more time I would figure out a way to optimize this
+	//returns the String representation of the object
+	//doesn't add the plural s's anymore after I changed the format of this toString
 	public String toString(){
-		String color = "";
-		String shape = "";
-		String shading = "";
-		String number = "";
-		String plural = "";
-		if(data[0] == 0){
-			color = "red";
-		} else if (data[0] == 1){
-			color = "green";
-		} else {
-			color = "purple";
+		String ret = "";
+		for(String s : this.properties){
+			ret += s + " ";
 		}
-		if(data[1] == 0){
-			shape = "diamond";
-		} else if (data[1] == 1){
-			shape = "squiggle";
-		} else {
-			shape = "oval";
-		}
-		if(data[2] == 0){
-			shading = "solid";
-		} else if (data[2] == 1){
-			shading = "empty";
-		} else {
-			shading = "striped";
-		}
-		if(data[3] == 0){
-			number = "one";
-		} else if (data[3] == 1){
-			number = "two";
-			plural = "s";
-		} else {
-			number = "three";
-			plural = "s";
-		}
-		return number + " " + color + " " + shading + " " + shape + plural;
+		return ret.trim();//deals with the trailing single whitespace
 	}
 
+	//returns the cards properties
+	public Collection<String> properties() {
+		return this.properties;
+	}
+
+	//returns whether or not the card is faceup or facedown
+	public boolean faceUp() {
+		boolean b = this.faceUp;
+		return b;
+	}
+
+	//allows for the faceup/down status of the card to change
+	public void turnOver(){
+		this.faceUp = !this.faceUp;
+	}
 }

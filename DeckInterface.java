@@ -1,3 +1,5 @@
+//@author Evan Frawley December 2015 - DeckInterface
+
 import java.util.Collection;
 
 //
@@ -10,7 +12,7 @@ public interface DeckInterface<Card> {
    public Card draw();
 
    //
-   public Collection<Card> reset();
+   public void reset();
 
    //
    public String toString();

@@ -1,12 +1,13 @@
 //@author Evan Frawley
-//Avve Card to be used in the Set Game
+//Avvo Card to be used in the Set Game
 
 import java.util.Collection;
 import java.lang.IllegalArgumentException;
 import java.util.ArrayList;
 import java.util.List;
+//import java.util.*;
 
-public class Card implements CardInterface<String>{
+public class Card implements Comparable<Card>, CardInterface<String>{
 
 	public final Collection<String> properties;
 	// i.e. - the properties can't be changed after being made
@@ -21,7 +22,6 @@ public class Card implements CardInterface<String>{
 		}
 		this.properties = new ArrayList<String>(prop);
 		this.faceUp = false; //initialized to facedown, boardstate manipulation can change
-		//if faceup or fd
 
 	}
 
@@ -41,7 +41,7 @@ public class Card implements CardInterface<String>{
 	}
 
 	//returns whether or not the card is faceup or facedown
-	public boolean faceUp() {
+	public boolean isFaceUp() {
 		boolean b = this.faceUp;
 		return b;
 	}
@@ -50,4 +50,11 @@ public class Card implements CardInterface<String>{
 	public void turnOver(){
 		this.faceUp = !this.faceUp;
 	}
+
+
+	//possibly want to implement a compareTo method here, but I am not sure of the best approach
+	public int compareTo(Card card1){
+		return 0;
+	}
+
 }

@@ -15,24 +15,29 @@ public class Simple {
       List<String> list2 = new ArrayList<String>();
       List<String> list3 = new ArrayList<String>();
 
-      list1.add("hi");
-      list1.add("test");
-      list2.add("hi");
-      list2.add("okay");
-      list3.add("hi");
-      list3.add("lol");
+      // list1.add("hi");
+      // list1.add("test");
+      // list2.add("hi");
+      // list2.add("okay");
+      // list3.add("hi");
+      // list3.add("lol");
+      //
+      // Card c1 = new Card(list1);
+      // Card c2 = new Card(list2);
+      // Card c3 = new Card(list3);
+      //
+      // Board b = new Board();
+      // b.add(c1);
+      // b.add(c2);
+      // b.add(c3);
+      //
+      // System.out.println(b.checkThree(c1, c2, c3));
+      // System.out.println(b.getSet());
+      // System.out.println(b.removed().toString());
 
-      Card c1 = new Card(list1);
-      Card c2 = new Card(list2);
-      Card c3 = new Card(list3);
-
-      Board b = new Board();
-      b.add(c1);
-      b.add(c2);
-      b.add(c3);
-
-      System.out.println(b.checkThree(c1, c2, c3));
-      System.out.println(b.checkBoard());
-      System.out.println(b.removed().toString());
+      NewSetManager nsm = new NewSetManager();
+      //System.out.println(nsm.deck.size());
+      nsm.play();
+      System.out.println("The player scored " + nsm.playerScore() + " sets!");
    }
 }

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 //import java.util.*;
 
-public class Card implements Comparable<Card>, CardInterface<String>{
+public class Card implements CardInterface<String>{
 
 	public final Collection<String> properties;
 	// i.e. - the properties can't be changed after being made

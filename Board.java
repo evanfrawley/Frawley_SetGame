@@ -73,7 +73,7 @@ public class Board implements BoardInterface<Card> {
    }
 
    //calls check three recursively on the board
-   public boolean checkBoard(){
+   public Set<Card> getSet(){
       //this can still be improved
       Set<Card> temp = new HashSet<Card>();
       Card c1;
@@ -91,12 +91,12 @@ public class Board implements BoardInterface<Card> {
                   temp.add(c3);
                   removedSets.add(temp);
                   this.board.removeAll(temp);
-                  return true;
+                  return temp;
                }
             }
          }
       }
-      return false;
+      return null;
    }
 
    //goal is to have this remove all of the instances of the three cards if they match

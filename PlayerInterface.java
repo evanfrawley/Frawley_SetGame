@@ -3,13 +3,13 @@
 import java.util.Collection;
 
 //
-public interface PlayerInterface<Card, Board> {
+public interface PlayerInterface<Card, Board, Deck> {
 
    //
    public Board hand();
 
    //
-   public void draw();
+   public Card draw(Deck d);
 
    //
    public String toString();
@@ -18,6 +18,6 @@ public interface PlayerInterface<Card, Board> {
    public int score();
 
    //
-   public void play();
+   public boolean play(Board b);
 
 }

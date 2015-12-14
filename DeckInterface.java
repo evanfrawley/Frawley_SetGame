@@ -17,4 +17,7 @@ public interface DeckInterface<Card> {
    //
    public String toString();
 
+   //
+   public int size();
+
 }

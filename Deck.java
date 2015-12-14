@@ -58,4 +58,15 @@ public class Deck implements DeckInterface {
       deck.push(card);
    }
 
+   public boolean isEmpty(){
+      if(deck == null || this.deck.size() == 0){
+         return true;
+      }
+      return false;
+   }
+
+   public int size(){
+      return this.deck.size();
+   }
+
 }

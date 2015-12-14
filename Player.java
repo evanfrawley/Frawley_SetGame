@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Player implements PlayerInterface {
+public class Player implements PlayerInterface<Card, Board, Deck> {
 
    //fields ?
    private Collection<Set<Card>> completeSets; //this is functionally the player's "hand"
@@ -8,7 +8,7 @@ public class Player implements PlayerInterface {
    private int score;
 
    public Player() {
-      this.hand = new ArrayList<Set<Card>>();
+      this.completeSets = new ArrayList<Set<Card>>();
       this.score = 0;
       //TODO
    }
@@ -16,7 +16,7 @@ public class Player implements PlayerInterface {
    //
    public Board hand(){
       Board b = new Board();
-      for(Set<Card> s : compleSets){
+      for(Set<Card> s : completeSets){
          for(Card c : s){
             b.add(c);
          }
@@ -25,16 +25,16 @@ public class Player implements PlayerInterface {
    }
 
    //
-   public void draw(Deck d){
+   public Card draw(Deck d){
       if(!d.isEmpty()){
          return d.draw();
       }
+      return null;
    }
 
    //
    public String toString(){
-      //TODO
-      return "I have a score of " + score "!";
+      return "I have a score of " + score +   "!";
    }
 
    //
@@ -43,8 +43,16 @@ public class Player implements PlayerInterface {
    }
 
    //
-   public void play(){
+   public boolean play(Board b){
       //TODO
+      Set<Card> s = b.getSet();
+      if(s != null){
+         this.completeSets.add(s);
+         this.score++;
+         return true;
+      }
+      return false;
+
    }
 
 }

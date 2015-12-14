@@ -3,7 +3,8 @@ import java.util.*;
 public class Player implements PlayerInterface {
 
    //fields ?
-   private Collection<Set<Card>> hand;
+   private Collection<Set<Card>> completeSets; //this is functionally the player's "hand"
+   //do i want t
    private int score;
 
    public Player() {
@@ -14,29 +15,36 @@ public class Player implements PlayerInterface {
 
    //
    public Board hand(){
-      //TODO
-      return null;
+      Board b = new Board();
+      for(Set<Card> s : compleSets){
+         for(Card c : s){
+            b.add(c);
+         }
+      }
+      return b;
    }
 
    //
-   public void draw(){
-      //TODO
-   }
-
-   //
-   public void draw(Collection<Card> cards){
-      //TODO
+   public void draw(Deck d){
+      if(!d.isEmpty()){
+         return d.draw();
+      }
    }
 
    //
    public String toString(){
       //TODO
-      return "";
+      return "I have a score of " + score "!";
    }
 
    //
    public int score(){
       return score;
+   }
+
+   //
+   public void play(){
+      //TODO
    }
 
 }

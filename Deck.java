@@ -30,6 +30,7 @@ public class Deck implements DeckInterface {
       while(!list.isEmpty()){
          deck.push(list.remove(0));
       }
+
    }
 
    //

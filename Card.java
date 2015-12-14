@@ -36,8 +36,9 @@ public class Card implements Comparable<Card>, CardInterface<String>{
 	}
 
 	//returns the cards properties
-	public Collection<String> properties() {
-		return this.properties;
+	public ArrayList<String> properties() {
+		ArrayList<String> list = new ArrayList<String>(this.properties);
+		return list;
 	}
 
 	//returns whether or not the card is faceup or facedown
@@ -49,12 +50,6 @@ public class Card implements Comparable<Card>, CardInterface<String>{
 	//allows for the faceup/down status of the card to change
 	public void turnOver(){
 		this.faceUp = !this.faceUp;
-	}
-
-
-	//possibly want to implement a compareTo method here, but I am not sure of the best approach
-	public int compareTo(Card card1){
-		return 0;
 	}
 
 }

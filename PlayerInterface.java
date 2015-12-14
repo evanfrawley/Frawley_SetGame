@@ -17,4 +17,7 @@ public interface PlayerInterface<Card, Board> {
    //
    public int score();
 
+   //
+   public void play();
+
 }

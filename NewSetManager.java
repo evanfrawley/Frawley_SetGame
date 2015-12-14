@@ -9,7 +9,6 @@ public class NewSetManager {
    private String[][] attributes = new String[4][3];
    private Deck deck;
    private Board board;
-   private Player player;
 
    public NewSetManager() {
 
@@ -25,7 +24,7 @@ public class NewSetManager {
 
       this.deck = new Deck(this.makeDeck());
       this.board = new Board();
-      this.player = new Player();
+      Player p = new Player();
 
    }
 
@@ -54,10 +53,7 @@ public class NewSetManager {
       return cards;
 
    }
-   //check three
 
-
-   //check board state
 
    //plays whole game with a player?
 

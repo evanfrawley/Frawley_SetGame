@@ -2,10 +2,6 @@ import java.util.*;
 
 public class NewSetManager {
 
-   public static void main(String[] args){
-
-   }
-
    private String[][] attributes = new String[4][3];
 
    public Deck deck;

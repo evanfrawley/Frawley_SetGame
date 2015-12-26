@@ -11,9 +11,9 @@ public class Simple {
       //c.faceUp() = true;
       //System.out.println(c.faceUp());
 
-      List<String> list1 = new ArrayList<String>();
-      List<String> list2 = new ArrayList<String>();
-      List<String> list3 = new ArrayList<String>();
+      // List<String> list1 = new ArrayList<String>();
+      // List<String> list2 = new ArrayList<String>();
+      // List<String> list3 = new ArrayList<String>();
 
       // list1.add("hi");
       // list1.add("test");
